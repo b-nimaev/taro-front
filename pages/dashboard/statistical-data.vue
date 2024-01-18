@@ -3,12 +3,12 @@
         <DashboardHeadingComponent title="Статистические данные" />
         <p v-if="pending">Fetching...</p>
         <pre v-else-if="error">Could not load quote: {{ error }}</pre>
-        <div v-else class="row">
+        <div v-else class="row mt-4">
             <div class="col-xl-5">
                 <article class="mt-2">
                     <div>
                         <form @submit.prevent="saveTelegramData" id="telegram-bot">
-                            <h5 class="mb-3"># Приветствие</h5>
+                            <h5 class="mb-3">Приветствие</h5>
                             <div class="">
                                 <label for="bot-token" class="form-label">Текст</label>
                                 <textarea v-model="bin[0].greeting" id="bot-token" class="form-control"></textarea>
@@ -20,7 +20,7 @@
                 <article class="mt-4">
                     <div>
                         <form @submit.prevent="saveActionData" id="telegram-bot">
-                            <h5 class="mb-3"># Призыв к действию</h5>
+                            <h5 class="mb-3">Призыв к действию</h5>
                             <div class="">
                                 <label for="bot-token" class="form-label">Текст</label>
                                 <textarea v-model="bin[0].action" id="bot-token" class="form-control"></textarea>

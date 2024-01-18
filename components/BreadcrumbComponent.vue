@@ -1,10 +1,14 @@
+<script lang="ts" setup>
+const route = useRoute()
+</script>
 <template>
   <div class="custom-breadcrumb">
-    <p class="small bre">
+    {{ route.path }}
+    <!-- <p class="small bre">
       <NuxtLink to="/">Главная</NuxtLink> -
       <NuxtLink to="/dashboard">Личный кабинет</NuxtLink> -
       <NuxtLink to="/dashboard/cashes">Кассы</NuxtLink>
-    </p>
+    </p> -->
   </div>
 </template>
 

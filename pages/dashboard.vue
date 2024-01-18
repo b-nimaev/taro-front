@@ -39,7 +39,7 @@
           </div>
           <button @click="logout" class="btn btn-sm btn-primary mt-2">Выйти</button>
         </div>
-        <main class="col">
+        <main class="col-lg-9">
           <NuxtPage />
         </main>
       </div>

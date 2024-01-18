@@ -58,7 +58,7 @@ async function savePricingData() {
         <DashboardHeadingComponent title="Настройки" />
         <p v-if="pending">Fetching...</p>
         <pre v-else-if="error">Could not load quote: {{ error }}</pre>
-        <div v-else class="row">
+        <div v-else class="row mt-4">
             <div class="col-xl-5">
                 <!-- <article class="mt-2">
                     <div>
@@ -98,7 +98,7 @@ async function savePricingData() {
                 <article class="mt-2">
                     <div>
                         <form @submit.prevent="savePricingData" id="pricing">
-                            <h5 class="mb-3"># Ценообразование</h5>
+                            <h5 class="mb-3">Ценообразование</h5>
                             <div class="mb-3">
                                 <label for="price" class="form-label">Стоимость подписки</label>
                                 <input id="price" class="form-control" type="text" v-model="bin[0].price">
