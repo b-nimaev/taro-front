@@ -36,7 +36,7 @@ const { data: deeplinks, pending, error } = useFetch<{
                         <th>{{ index + 1 }}</th>
                         <td style="text-align: left;">{{ link.name }}</td>
                         <td style="text-align: left;">
-                            <pre style="margin-bottom: 0; padding: 0">{{ link.value }}</pre>
+                            <pre style="margin-bottom: 0; padding: 0"><a href="https://t.me/api3flbot?start=" + link.value>https://t.me/api3flbot?start={{ link.value }}</a></pre>
                         </td>
                         <td>{{ link.referredUserId.length }}</td>
                         <!-- <td class="text-center"><button class="btn btn-danger btn-sm btn-delete"><i class="bi bi-trash"></i> -->

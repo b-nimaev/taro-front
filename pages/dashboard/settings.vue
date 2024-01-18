@@ -1,11 +1,57 @@
 <script lang="ts" setup>
-const { data: bin, pending, error } = useFetch<any>(() => `http://localhost:5555/bin`, {
+const { data: bin, pending, error } = <any>useFetch(() => `http://localhost:5555/bin`, {
     method: 'get',
     headers: {
         'Authorization': `Bearer ${useCookie("token").value}`,
         'Content-Type': 'application/json', // Укажите тип контента, если это необходимо,
     }
 })
+async function saveTelegramData() {
+    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `http://localhost:5555/bin/updateTelegramData`, {
+        method: 'put',
+        body: {
+            telegramToken: bin.value[0].openaiToken,
+            telegramBotLink: bin.value[0].telegramBotLink,
+            telegramChannelLink: bin.value[0].telegramChannelLink,
+        },
+        headers: {
+            'Authorization': `Bearer ${useCookie("token").value}`,
+            'Content-Type': 'application/json', // Укажите тип контента, если это необходимо,
+        }
+    })
+
+    console.log(updateResponse)
+    console.log(updateError)
+}
+async function saveOpenaiData() {
+    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `http://localhost:5555/bin/updateOpenaiToken`, {
+        method: 'put',
+        body: {
+            openaiToken: bin.value[0].openaiToken
+        },
+        headers: {
+            'Authorization': `Bearer ${useCookie("token").value}`,
+            'Content-Type': 'application/json', // Укажите тип контента, если это необходимо,
+        }
+    })
+
+    console.log(updateResponse)
+    console.log(updateError)
+}
+async function savePricingData() {
+    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `http://localhost:5555/bin/updatePriceData`, {
+        method: 'put',
+        body: {
+            price: parseFloat(bin.value[0].price),
+            priceTest: parseFloat(bin.value[0].priceTest),
+
+        },
+        headers: {
+            'Authorization': `Bearer ${useCookie("token").value}`,
+            'Content-Type': 'application/json', // Укажите тип контента, если это необходимо,
+        }
+    })
+}
 </script>
 <template>
     <div>
@@ -14,9 +60,9 @@ const { data: bin, pending, error } = useFetch<any>(() => `http://localhost:5555
         <pre v-else-if="error">Could not load quote: {{ error }}</pre>
         <div v-else class="row">
             <div class="col-xl-5">
-                <article class="mt-2">
+                <!-- <article class="mt-2">
                     <div>
-                        <form action="" id="telegram-bot">
+                        <form @submit.prevent="saveTelegramData" id="telegram-bot">
                             <h5 class="mb-3"># Телеграмм бот</h5>
                             <div class="mb-3">
                                 <label for="bot-token" class="form-label">Токен</label>
@@ -28,16 +74,17 @@ const { data: bin, pending, error } = useFetch<any>(() => `http://localhost:5555
                             </div>
                             <div>
                                 <label for="telegram-channel-link" class="form-label">Канал для подписки</label>
-                                <input id="telegram-channel-link" class="form-control" type="text" v-model="bin[0].telegramChannelLink">
+                                <input id="telegram-channel-link" class="form-control" type="text"
+                                    v-model="bin[0].telegramChannelLink">
                             </div>
                             <button class="btn btn-primary mt-3">Соханить</button>
                         </form>
                     </div>
-                </article>
+                </article> -->
 
-                <article class="mt-5">
+                <!-- <article class="mt-5">
                     <div>
-                        <form action="" id="openai">
+                        <form @submit.prevent="saveOpenaiData" id="openai">
                             <h5 class="mb-3"># Open AI</h5>
                             <div class="">
                                 <label for="openai-token" class="form-label">Токен</label>
@@ -46,11 +93,11 @@ const { data: bin, pending, error } = useFetch<any>(() => `http://localhost:5555
                             <button class="btn btn-primary mt-3">Соханить</button>
                         </form>
                     </div>
-                </article>
+                </article> -->
 
-                <article class="mt-5">
+                <article class="mt-2">
                     <div>
-                        <form action="" id="pricing">
+                        <form @submit.prevent="savePricingData" id="pricing">
                             <h5 class="mb-3"># Ценообразование</h5>
                             <div class="mb-3">
                                 <label for="price" class="form-label">Стоимость подписки</label>
