@@ -26,7 +26,7 @@
               </li>
               <li>
                 <NuxtLink to="/dashboard/dialogs"
-                  >Диалоги</NuxtLink
+                  >Пользователи</NuxtLink
                 >
               </li>
               <li>

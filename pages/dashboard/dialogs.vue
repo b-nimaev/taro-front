@@ -24,7 +24,7 @@ async function goto(id: number) {
 </script>
 <template>
   <div>
-    <DashboardHeadingComponent title="Диалоги" />
+    <DashboardHeadingComponent title="Пользователи" />
     <p v-if="pending">Fetching...</p>
     <pre v-else-if="error">Could not load quote: {{ error }}</pre>
     <table v-else-if="response?.recipients.length" class="mt-4 table align-middle text-center table-sm">

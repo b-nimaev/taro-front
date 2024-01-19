@@ -1,6 +1,6 @@
 <template>
   <div class="page-heading">
-    <h4>{{ title }}</h4>
+    <h5>{{ title }}</h5>
     <BreadcrumbComponent />
   </div>
 </template>

@@ -3,7 +3,8 @@ const route = useRoute()
 </script>
 <template>
   <div class="custom-breadcrumb">
-    {{ route.path }}
+    <!-- <span v-for="(item, index) in route.path.split('/')" :key="index"> -->
+    <!-- <NuxtLink :to="route.path.split('/')[index]">{{ item }}</NuxtLink> <i v-if="index !== 0 && index !== route.path.split('/').length"> / </i> </span> -->
     <!-- <p class="small bre">
       <NuxtLink to="/">Главная</NuxtLink> -
       <NuxtLink to="/dashboard">Личный кабинет</NuxtLink> -
