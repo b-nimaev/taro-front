@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
-    const query = await $fetch('http://localhost:5555/promt/create', {
+    const query = await $fetch('http://api:5555/backendapi/promt/create', {
         method: 'post',
         headers: {
             'Authorization': `Bearer ${body.token}`,

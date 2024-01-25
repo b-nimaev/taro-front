@@ -10,7 +10,7 @@ const {
     freeSpin: number,
     subscribe: boolean
   }];
-}>(() => `http://localhost:5555/telegram/all-recipients`, {
+}>(() => `https://drvcash.com/backendapi/telegram/all-recipients`, {
   method: "get",
   headers: {
     Authorization: `Bearer ${useCookie("token").value}`,

@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     try {
 
-        const query = await $fetch('http://localhost:5555/organization/isOGRNExsits', {
+        const query = await $fetch('http://api:5555/organization/isOGRNExsits', {
             method: 'get',
             params: {
                 ogrn: body.ogrn

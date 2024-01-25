@@ -12,7 +12,7 @@ const {
       _id: string;
     }
   ];
-}>(() => `http://localhost:5555/promt`, {
+}>(() => `https://drvcash.com/backendapi/promt`, {
   method: "get",
   headers: {
     Authorization: `Bearer ${useCookie("token").value}`,
@@ -61,7 +61,7 @@ async function save(id: string) {
               data: savePromt,
               pending: pendingSavePromt,
               error,
-            } = useFetch(() => `http://localhost:5555/promt/edit`, {
+            } = useFetch(() => `https://drvcash.com/backendapi/promt/edit`, {
               method: "put",
               headers: {
                 Authorization: `Bearer ${useCookie("token").value}`,
@@ -97,7 +97,7 @@ async function deletePromt(id: string) {
               data: savePromt,
               pending: pendingSavePromt,
               error,
-            } = useFetch(() => `http://localhost:5555/promt/delete`, {
+            } = useFetch(() => `https://drvcash.com/backendapi/promt/delete`, {
               method: "delete",
               headers: {
                 Authorization: `Bearer ${useCookie("token").value}`,

@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)    
-    const query = await $fetch('http://localhost:5555/auth/register', {
+    const query = await $fetch('http://api:5555/backendapi/auth/register', {
         method: 'post',
         body: {
             username: body.username,

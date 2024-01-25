@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: bin, pending, error } = <any>useFetch(() => `http://localhost:5555/bin`, {
+const { data: bin, pending, error } = <any>useFetch(() => `https://drvcash.com/backendapi/bin`, {
     method: 'get',
     headers: {
         'Authorization': `Bearer ${useCookie("token").value}`,
@@ -7,7 +7,7 @@ const { data: bin, pending, error } = <any>useFetch(() => `http://localhost:5555
     }
 })
 async function saveTelegramData() {
-    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `http://localhost:5555/bin/updateTelegramData`, {
+    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `https://drvcash.com/backendapi/bin/updateTelegramData`, {
         method: 'put',
         body: {
             telegramToken: bin.value[0].openaiToken,
@@ -24,7 +24,7 @@ async function saveTelegramData() {
     console.log(updateError)
 }
 async function saveOpenaiData() {
-    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `http://localhost:5555/bin/updateOpenaiToken`, {
+    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `https://drvcash.com/backendapi/bin/updateOpenaiToken`, {
         method: 'put',
         body: {
             openaiToken: bin.value[0].openaiToken
@@ -39,7 +39,7 @@ async function saveOpenaiData() {
     console.log(updateError)
 }
 async function savePricingData() {
-    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `http://localhost:5555/bin/updatePriceData`, {
+    const { data: updateResponse, pending: updatePending, error: updateError } = <any>useFetch(() => `https://drvcash.com/backendapi/bin/updatePriceData`, {
         method: 'put',
         body: {
             price: parseFloat(bin.value[0].price),

@@ -47,7 +47,7 @@ async function submit() {
       <p class="my-3 small" v-if="message">{{ message }}</p>
     </form>
 
-    <p class="mt-3"><NuxtLink to="/registration">Создать аккаунт</NuxtLink></p>
+    <!-- <p class="mt-3"><NuxtLink to="/registration">Создать аккаунт</NuxtLink></p> -->
 
   </div>
 </template>

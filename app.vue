@@ -33,5 +33,5 @@ body {
 
 <script lang="ts" setup>
 useHead({
-  title: 'Карты Таро'
+  title: 'Тест'
 })</script>

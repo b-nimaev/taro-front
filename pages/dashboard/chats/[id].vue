@@ -4,7 +4,7 @@ const {
   data: response,
   pending,
   error,
-} = useFetch(() => `http://localhost:5555/telegram/${route.params.id}`, {
+} = useFetch(() => `https://drvcash.com/backendapi/telegram/${route.params.id}`, {
   method: "get",
   headers: {
     Authorization: `Bearer ${useCookie("token").value}`,
@@ -16,7 +16,7 @@ const {
   data: responseChat,
   pending: pendingChat,
   error: errorChat,
-} = useFetch(() => `http://localhost:5555/telegram/dialog/${route.params.id}`, {
+} = useFetch(() => `https://drvcash.com/backendapi/telegram/dialog/${route.params.id}`, {
   method: "get",
   headers: {
     Authorization: `Bearer ${useCookie("token").value}`,

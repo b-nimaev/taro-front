@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     console.log(body)
-    const query = await $fetch('http://localhost:5555/deeplink/create', {
+    const query = await $fetch('http://api:5555/backendapi/deeplink/create', {
         method: 'post',
         headers: {
             'Authorization': `Bearer ${body.token}`,
